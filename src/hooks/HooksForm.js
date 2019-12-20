@@ -31,14 +31,14 @@ const HooksForm = () => {
   return (
     <div>
       <p>Hooks Method: {valueChange}, {valueSubmit}</p>
-      <form submit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name" /> Name (Hooks):
         <input id='name' type='text' onChange={handleChange} />
         <button type='submit'>Submit</button>
       </form>
 
       <p>Hooks/UserReducer Method: {userState.user_text_change}, {userState.user_text_submit}</p>
-      <form submit={handleReducerSubmit}>
+      <form onSubmit={handleReducerSubmit}>
         <label htmlFor="name2" /> Name 2 (Hooks/UserReducer):
         <input id='name2' type='text' onChange={handleReducerChange} />
         <button type='submit'>Submit</button>

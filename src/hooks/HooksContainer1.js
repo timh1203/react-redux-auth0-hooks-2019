@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
+import * as Reducer from '../store/reducers/hooks_reducer'
+import * as ACTIONS from '../store/actions/actions'
 
 const HooksContainer1 = () => {
   // HOOKS METHOD 1
   const [stateValue, setValue] = useState(0)
   const [useEffectValue, setUseEffectValue] = useState(null)
+  const [state, dispatch] = useReducer(Reducer.HooksReducer, Reducer.initialState)
 
   // HOOKS METHOD 2
   // const stateValue = useState(0)[0]
@@ -28,6 +31,16 @@ const HooksContainer1 = () => {
     setUseEffectValue("useEffect was changed")
   }
 
+  const handleDispatchSuccess = () => {
+    dispatch(ACTIONS.dispatch_success())
+  }
+
+  // Can use this method like success or just in the button itself
+  // See below
+  // const handleDispatchFailure = () => {
+  //   dispatch(ACTIONS.dispatch_failure())
+  // }
+
   return (
     <div>
       <p>HooksContainer1</p>
@@ -40,6 +53,12 @@ const HooksContainer1 = () => {
       <div>
         <span>{useEffectValue || 'Making API call...'}</span>
         <button onClick={() => changeUseEffectValue()}>Change UseEffect Value</button>
+      </div>
+      <br />
+      <div>
+        <span>{state.hookprop1}</span>
+        <button onClick={() => handleDispatchSuccess()}>Change UseEffect Success</button>
+        <button onClick={() => { dispatch(ACTIONS.dispatch_failure()) }}>Change UseEffect Failure</button>
       </div>
     </div>
   )

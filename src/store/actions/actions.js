@@ -54,3 +54,15 @@ export const remove_profile = () => {
     type: ACTION_TYPES.REMOVE_PROFILE
   }
 }
+
+export const dispatch_success = () => {
+  return {
+    type: ACTION_TYPES.DISPATCH_SUCCESS
+  }
+}
+
+export const dispatch_failure = () => {
+  return {
+    type: ACTION_TYPES.DISPATCH_FAILURE
+  }
+}

@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useState, useEffect, useReducer, useContext } from 'react'
 import * as Reducer from '../store/reducers/hooks_reducer'
 import * as ACTIONS from '../store/actions/actions'
+import Context from '../utils/context'
 
 const HooksContainer1 = () => {
+  const context = useContext(Context)
+
   // HOOKS METHOD 1
   const [stateValue, setValue] = useState(0)
   const [useEffectValue, setUseEffectValue] = useState(null)
@@ -56,9 +59,14 @@ const HooksContainer1 = () => {
       </div>
       <br />
       <div>
-        <span>{state.hookprop1}</span>
+        <span>Hook prop: {state.hookprop1}</span>
         <button onClick={() => handleDispatchSuccess()}>Change UseEffect Success</button>
         <button onClick={() => { dispatch(ACTIONS.dispatch_failure()) }}>Change UseEffect Failure</button>
+      </div>
+      <div>
+        <span>Context Global State: {context.globalState}</span>
+        <button onClick={() => context.incGlobalState()}>Change UseEffect Success</button>
+        <button onClick={() => context.decGlobalState()}>Change UseEffect Failure</button>
       </div>
     </div>
   )

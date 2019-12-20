@@ -59,14 +59,24 @@ const HooksContainer1 = () => {
       </div>
       <br />
       <div>
-        <span>Hook prop: {state.hookprop1}</span>
+        <span>Hook prop 1: {state.hookprop1}</span>
         <button onClick={() => handleDispatchSuccess()}>Change UseEffect Success</button>
         <button onClick={() => { dispatch(ACTIONS.dispatch_failure()) }}>Change UseEffect Failure</button>
       </div>
+      <br />
       <div>
         <span>Context Global State: {context.globalState}</span>
         <button onClick={() => context.incGlobalState()}>Change UseEffect Success</button>
         <button onClick={() => context.decGlobalState()}>Change UseEffect Failure</button>
+      </div>
+      <br />
+      <div>
+        <span>Hook prop 2: {context.reducerGlobalState
+          ? <span>Hook Prop 2 is true</span>
+          : <span>Hook Prop 2 is false</span>}
+        </span>
+        <button onClick={() => { context.dispatchContextTrue() }}>Change UseEffect Success</button>
+        <button onClick={() => { context.dispatchContextFalse() }}>Change UseEffect Failure</button>
       </div>
     </div>
   )

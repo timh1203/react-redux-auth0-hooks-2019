@@ -78,6 +78,12 @@ const HooksContainer1 = () => {
         <button onClick={() => { context.dispatchContextTrue() }}>Change UseEffect Success</button>
         <button onClick={() => { context.dispatchContextFalse() }}>Change UseEffect Failure</button>
       </div>
+      <br />
+      <div>
+        <span>
+          Global state from hooks form to check persistence: {context.user_text_change}, {context.user_text_submit}
+        </span>
+      </div>
     </div>
   )
 }
